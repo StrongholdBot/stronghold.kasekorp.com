@@ -1,2 +1,2 @@
-# docs
-The official documentation for Stronghold
+# The Stronghold Discord bot website
+The official website for Stronghold
