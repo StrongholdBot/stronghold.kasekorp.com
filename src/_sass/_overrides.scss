@@ -1,0 +1,21 @@
+/* --- MINIMA OVERRIDES FOR DARK MODE --- */
+
+.site-header {
+  background: $bg-darker;
+  border-bottom: 1px solid $bg-hover;
+}
+
+.site-title,
+.site-nav a {
+  color: $text-primary;
+  &,
+  &:visited {
+    color: inherit;
+  }
+}
+
+.site-footer {
+  background: $bg-darker;
+  color: $text-secondary;
+  border-top: 1px solid $bg-hover;
+}

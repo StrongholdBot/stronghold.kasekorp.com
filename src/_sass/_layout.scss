@@ -1,0 +1,153 @@
+/* --- LAYOUT MODULE --- */
+
+/* Page panels */
+.panel {
+  background: $bg-panel;
+  padding: $space-6;
+  border-radius: $radius-lg;
+  box-shadow: $shadow;
+  margin: $space-6 0;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: $space-6;
+  margin: $space-8 0;
+}
+
+.card {
+  background: $bg-panel;
+  padding: $space-6;
+  border-radius: $radius;
+  box-shadow: $shadow-light;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $bg-hover;
+  }
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+/* --- Top Navigation Resize --- */
+.site-nav {
+  background: #1d1f21;
+  padding: 0.4rem 1rem;
+}
+
+.site-nav a {
+  margin-right: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* --- Sidebar --- */
+.layout {
+  display: flex;
+}
+
+/* Collapsible sidebar container */
+.sidebar {
+  width: 240px;
+  background: #1c1c1c;
+  padding: 1rem;
+  position: relative;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  transition: width .25s ease;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.sidebar li {
+  margin: 0.4rem 0;
+}
+
+.sidebar a {
+  color: #d6d6d6;
+  font-size: 0.95rem;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  display: none; /* desktop hidden */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* --- Mobile collapse --- */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .sidebar.open {
+    width: 240px;
+    padding: 1rem;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .page-content {
+    padding-left: 0;
+  }
+}
+
+// --- Search ---
+#search-input {
+  width: 75%;
+  max-width: 320px;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.25);
+}
+
+#results-container {
+  margin-top: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+#results-container li {
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+#results-container li:last-child {
+  border-bottom: none;
+}

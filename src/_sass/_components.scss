@@ -1,0 +1,51 @@
+/* --- COMPONENTS --- */
+
+/* Discord-style command block */
+.discord-command {
+  background: $bg-panel;
+  color: $text-primary;
+  padding: $space-3 $space-4;
+  border-radius: $radius;
+  display: inline-block;
+  margin: $space-2 0;
+  white-space: pre-wrap;
+  border-left: 4px solid $accent;
+  font-family: $font-code;
+}
+
+/* Callouts */
+.callout {
+  padding: $space-4 $space-6;
+  border-radius: $radius-lg;
+  margin: $space-6 0;
+  border-left: 6px solid $accent;
+  background: $bg-panel;
+  box-shadow: $shadow-light;
+
+  &.info    { border-color: $accent; }
+  &.warning { border-color: #ffa200; }
+  &.error   { border-color: #e5534b; }
+  &.success { border-color: #3cb64b; }
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: $space-6 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: $space-3 $space-4;
+  border-bottom: 1px solid $bg-hover;
+}
+
+th {
+  background: $bg-darker;
+  color: $text-primary;
+}
+
+td {
+  color: $text-secondary;
+}
