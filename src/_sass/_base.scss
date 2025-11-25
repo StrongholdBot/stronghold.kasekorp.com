@@ -13,6 +13,10 @@ a:hover {
   color: $accent-hover;
 }
 
+a:visited {
+  color: $accent-visited;
+}
+
 .page-content {
   max-width: 900px;
   margin: 0 auto;

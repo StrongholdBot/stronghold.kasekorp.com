@@ -55,8 +55,8 @@
   width: 240px;
   background: #1c1c1c;
   padding: 1rem;
-  position: relative;
-  height: calc(100vh - 60px);
+  position: fixed;
+  height: calc(100vh - 4rem);
   overflow-y: auto;
   transition: width .25s ease;
 }
@@ -97,7 +97,7 @@
 }
 
 /* --- Mobile collapse --- */
-@media (max-width: 900px) {
+@media (max-width: 1460px) {
   .sidebar {
     width: 0;
     padding: 0;
