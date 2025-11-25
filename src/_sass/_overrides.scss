@@ -19,3 +19,8 @@
   color: $text-secondary;
   border-top: 1px solid $bg-hover;
 }
+
+code {
+  background: $bg-hover;
+  color: $text-primary;
+}

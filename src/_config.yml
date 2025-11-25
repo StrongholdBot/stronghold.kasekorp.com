@@ -21,11 +21,13 @@
 title: Stronghold
 email: info@kasekorp.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Ranks, points, sessions, activity checks, logging, diplomacy, and permissions: all documented in one place.
+  The general-purpose Discord bot, Stronghold. Ranks, points, sessions, activity checks, logging, diplomacy, and permissions: all documented in one place.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username: StrongholdBot
+support_server: https://discord.gg/tGSAjdSqfJ
+support_username: "@stabbyfork"
 
 # Build settings
 theme: minima
