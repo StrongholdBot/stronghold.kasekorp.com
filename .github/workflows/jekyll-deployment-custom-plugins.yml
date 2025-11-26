@@ -1,4 +1,4 @@
-name: Build & Deploy Jekyll (Custom Plugins)
+name: Build & Deploy Jekyll (Optimized)
 
 on:
   push:
@@ -24,18 +24,21 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1"
+          ruby-version: '3.1'
           bundler-cache: true
 
-      - name: Install dependencies
-        run: bundle install
+      - name: Cache Jekyll build cache
+        uses: actions/cache@v4
+        with:
+          path: .jekyll-cache
+          key: jekyll-${{ hashFiles('**/*.md', '**/*.liquid', '**/*.scss', '_data/**', '_includes/**', '_layouts/**') }}
 
-      - name: Build with Jekyll
+      - name: Build site
         run: bundle exec jekyll build --trace
         env:
           JEKYLL_ENV: production
 
-      - name: Upload build output
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -47,6 +50,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
