@@ -34,7 +34,7 @@ jobs:
           key: jekyll-${{ hashFiles('**/*.md', '**/*.liquid', '**/*.scss', '_data/**', '_includes/**', '_layouts/**') }}
 
       - name: Build site
-        run: bundle exec jekyll build --trace
+        run: bundle exec jekyll build --source src --destination _site --trace
         env:
           JEKYLL_ENV: production
 
