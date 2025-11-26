@@ -17,9 +17,7 @@ Stronghold is a <i>general-purpose faction assistant</i> (Discord bot) designed 
 If you're new, start with the [Getting Started](/getting-started) guide, where you’ll learn how to:
 
 - Install and set up Stronghold
-
 - Configure settings
-
 - Use important features
 
 ## Contents
@@ -27,21 +25,15 @@ If you're new, start with the [Getting Started](/getting-started) guide, where y
 This documentation covers:
 
 - Features: the capabilities of the bot
-
 - Configuration: settings and options
-
 - Commands: reference documentation for commands
-
 - Troubleshooting: solutions to common issues
 
 ## Why Use Stronghold?
 
 - Secure
-
 - Modular
-
 - Easy setup and usage
-
 - Flexible use cases (not limited to just faction servers!)
 
 ## Still In Development
@@ -49,4 +41,4 @@ This documentation covers:
 The bot is continuously being developed.
 Also, some parts of this documentation are still being written.
 
-If you don’t find what you’re looking for, check back soon (or [contact us](mailto:{{ site.email }})).
+If you don’t find what you’re looking for, check back soon (or [contact us](/contact)).

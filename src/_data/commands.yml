@@ -1,0 +1,12 @@
+commands:
+  - name: "test1"
+    usage: "usage 1"
+    description: "description 1"
+    children:
+      - name: "test2"
+        usage: "test usage 2"
+        description: "test description 2"
+
+      - name: "test3"
+        usage: "test usage 3"
+        description: "test description 3"

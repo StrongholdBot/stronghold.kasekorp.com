@@ -5,13 +5,14 @@ title: Commands
 
 # Commands
 
-{% for category in site.data.commands %}
-## {{ category[0] | capitalize }}
-
-{% for cmd in category[1] %}
-### /{{ cmd.name }}
-**Usage:** `{{ cmd.usage }}`  
-{{ cmd.description }}
+<ul>
+{% assign commands = site.commands | sort: "path" %}
+{% for cmd in commands %}
+  <li>
+    <a href="{{ cmd.url }}">{{ cmd.title }}</a>
+    <span class="ancestors">
+      – {{ cmd.ancestry | join: " → " }}
+    </span>
+  </li>
 {% endfor %}
-
-{% endfor %}
+</ul>

@@ -1,0 +1,12 @@
+{% assign type = include.type | default: "info" %}
+{% assign img = include.img %}
+<div class="callout {{ type }}">
+    {% if img %}
+    <div class="callout-img">
+        <img src="{{ img }}" alt loading="lazy">
+    </div>
+    {% endif %}
+    <div class="callout-content">
+        {{ include.content | markdownify }}
+    </div>
+</div>

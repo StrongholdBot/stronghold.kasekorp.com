@@ -3,7 +3,7 @@ layout: default
 title: Contact
 ---
 
-# Contacting us
+# Contact Us
 
 Contact can be made via different means:
 

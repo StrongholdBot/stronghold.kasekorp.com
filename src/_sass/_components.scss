@@ -1,18 +1,5 @@
 /* --- COMPONENTS --- */
 
-/* Discord-style command block */
-/*.discord-command {
-  background: $bg-panel;
-  color: $text-primary;
-  padding: 0.1rem 0.35rem;
-  border-radius: $radius;
-  display: inline-block;
-  margin: $space-2 0;
-  white-space: pre-wrap;
-  border-left: 4px solid $accent;
-  font-family: $font-code;
-}*/
-
 .discord-command {
   display: inline-flex;
   align-items: center;
@@ -53,18 +40,54 @@
 
 /* Callouts */
 .callout {
-  padding: $space-4 $space-6;
+  display: flex;
+  gap: $space-2;
+  padding: $space-2 $space-2;
   border-radius: $radius-lg;
-  margin: $space-6 0;
+  margin: $space-2 0;
   border-left: 6px solid $accent;
   background: $bg-panel;
   box-shadow: $shadow-light;
 
-  &.info    { border-color: $accent; }
-  &.warning { border-color: #ffa200; }
-  &.error   { border-color: #e5534b; }
-  &.success { border-color: #3cb64b; }
+  // Reduce bottom spacing, especially after markdown paragraphs
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  // Optional image support
+  .callout-img {
+    flex: 0 0 auto;
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  // Main text
+  .callout-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &.info {
+    border-color: $accent;
+  }
+
+  &.warning {
+    border-color: #ffa200;
+  }
+
+  &.error {
+    border-color: #e5534b;
+    background: mix(#e5534b, $bg-panel, 8%);
+  }
 }
+
+
 
 /* Tables */
 table {
