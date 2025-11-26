@@ -1,12 +1,82 @@
-commands:
-  - name: "test1"
-    usage: "usage 1"
-    description: "description 1"
-    children:
-      - name: "test2"
-        usage: "test usage 2"
-        description: "test description 2"
-
-      - name: "test3"
-        usage: "test usage 3"
-        description: "test description 3"
+- name: activity
+  description: "Commands related to activity"
+  children:
+    - name: checks
+      description: "activity checks"
+      children:
+        - name: create
+        - name: execute
+        - name: cancel
+        - name: pause
+        - name: resume
+        - name: info
+- name: dpm
+  children:
+    - name: setup
+    - name: info
+    - name: allies
+      children:
+        - name: add
+        - name: remove
+        - name: list
+    - name: enemies
+      children:
+        - name: add
+        - name: remove
+        - name: list
+    - name: neutrals
+      children:
+        - name: add
+        - name: remove
+        - name: list
+    - name: list
+    - name: send
+- name: permissions
+  children:
+    - name: roles
+      children:
+        - name: add
+        - name: remove
+        - name: list
+        - name: clear
+        - name: set
+    - name: users
+      children:
+        - name: add
+        - name: remove
+        - name: list
+        - name: clear
+        - name: set
+    - name: list
+    - name: get
+- name: ranking
+  children:
+    - name: view
+    - name: points
+      children:
+        - name: lb
+        - name: add
+        - name: remove
+        - name: set
+    - name: promote
+    - name: ranks
+      children:
+        - name: list
+        - name: add
+        - name: add_bulk
+        - name: edit
+        - name: remove
+        - name: in
+- name: session
+  children:
+    - name: status
+    - name: start
+    - name: quickstart
+    - name: stop
+    - name: edit
+    - name: edit_default
+    - name: participants
+    - name: kick
+    - name: quota
+    - name: remove
+    - name: time

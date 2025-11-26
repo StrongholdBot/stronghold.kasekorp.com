@@ -6,8 +6,14 @@ layout: default
 
 {% if page.ancestry %}
 <p class="ancestry">
-    <strong>Path:</strong>
-    {{ page.ancestry | join: " → " }} → {{ page.title }}
+    <strong>Full command:</strong><br>
+    <span class="discord-command-wrapper">
+        <span class="discord-command">
+            <code>/{{ page.ancestry | join: "" }} {{ page.title }}</code>
+            <button class="discord-copy-btn" onclick="copyDiscordCommand(this)"
+                aria-label="Copy command">⧉</button>
+        </span>
+    </span>
 </p>
 {% endif %}
 
