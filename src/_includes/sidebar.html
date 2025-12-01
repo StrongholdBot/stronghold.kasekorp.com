@@ -2,15 +2,6 @@
 <nav class="sidebar">
   <input id="search-input" placeholder="Search the docs" />
   <ul id="results-container"></ul>
-  <script
-    src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-  <script>
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '{{ "/search.json" | relative_url }}'
-    });
-  </script>
   <div class="sidebar-content">
     <h3 class='no-toc'>Documentation</h3>
     <ul>

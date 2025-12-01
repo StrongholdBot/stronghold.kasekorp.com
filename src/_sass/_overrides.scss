@@ -3,11 +3,14 @@
 .site-header {
   background: $bg-darker;
   border-bottom: 1px solid $bg-hover;
+  width: 100%;
+  position: fixed;
 }
 
 .site-title,
 .site-nav a {
   color: $text-primary;
+
   &,
   &:visited {
     color: inherit;

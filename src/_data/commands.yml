@@ -1,82 +1,371 @@
 - name: activity
-  description: "Commands related to activity"
+  description: Commands related to activity. Currently only includes activity checks.
   children:
     - name: checks
-      description: "activity checks"
+      description:
+        - Create, execute, cancel, pause, and resume activity checks.
+        - These can help determine activity levels in a server and mark users as inactive.
+        - May boost activity if used properly.
       children:
         - name: create
+          description: Create an activity check.
+          usage:
+            - Time is written in the format ??d ??m, where ??d is the number of days and ??m is the number of minutes.
+            - For example, 5d 7h is 5 days and 7 hours.
+            - Specify the number of strikes a user can have before they are able to be automatically kicked (if you allow it)
+            - Specify a channel to send the message to.
+            - Specify a sequence of events to run when the activity check is run (either automatically or using /{ activity checks execute }).
+            - For more information on sequences, use /{ activity checks info }.
+          permissions:
+            - manageActivityChecks
+
         - name: execute
+          usage:
+            - Specify a sequence.
+            - For more information on sequences, use /{ activity checks info }.
+          description: Run a sequence of events using the current activity check.
+          permissions:
+            - manageActivityChecks
+
         - name: cancel
+          usage: Use to change the options of an activity check.
+          description: Cancel an activity check.
+          permissions:
+            - manageActivityChecks
+
         - name: pause
+          description: Pause an activity check.
+          permissions:
+            - manageActivityChecks
+
         - name: resume
+          description: Resume an activity check.
+          permissions:
+            - manageActivityChecks
+
         - name: info
+          description: List information about how to structure activity check sequences.
+
 - name: dpm
+  description: Commands related to diplomacy.
   children:
     - name: setup
+      usage: Provide a tag and a forum channel to use for diplomacy.
+      description:
+        - Set up diplomacy.
+        - You must be the server owner.
+
     - name: info
+      description: List information about this server.
+
     - name: allies
+      description: Manage diplomatic allies.
       children:
         - name: add
+          usage: Provide a server's tag.
+          description: Add an ally.
+          permissions:
+            - manageRelations
+
         - name: remove
+          usage: Provide a server's tag.
+          description: Remove an ally.
+          permissions:
+            - manageRelations
+
         - name: list
+          description: List all allies.
+
     - name: enemies
+      description: Manage diplomatic enemies.
       children:
         - name: add
+          usage: Provide a server's tag.
+          description: Add an enemy.
+          permissions:
+            - manageRelations
+
         - name: remove
+          usage: Provide a server's tag.
+          description: Remove an enemy.
+          permissions:
+            - manageRelations
+
         - name: list
+          description: List all enemies.
+
     - name: neutrals
+      description: Manage servers this server is neutral with.
       children:
         - name: add
+          usage: Provide a server's tag.
+          description: Add a neutral.
+          permissions:
+            - manageRelations
+
         - name: remove
+          usage: Provide a server's tag.
+          description: Remove a neutral.
+          permissions:
+            - manageRelations
+
         - name: list
+          description: List all neutral servers.
+
     - name: list
+      description: List all servers registered in the diplomacy database.
+
     - name: send
+      usage:
+        - Provide a tag to send the message to and the message itself.
+        - You can also reply to one of Stronghold's messages in a diplomacy thread as a short-hand for this command (what you say is used as the message content).
+      description: Send a diplomatic message to another server.
+      permissions:
+        - manageRelations
+
 - name: permissions
+  description:
+    - Bot-specific permission management.
+    - DOES NOT manage Discord permissions.
   children:
     - name: roles
+      usage: Mention a role.
+      description: Manage permissions for a role.
       children:
         - name: add
+          usage: Mention a role.
+          description: Add permissions to a role.
+          permissions:
+            - managePermissions
+
         - name: remove
+          usage: Mention a role.
+          description: Remove some of a role's permissions.
+          permissions:
+            - managePermissions
+
         - name: list
+          usage: Mention a role.
+          description: List all the permissions of a role.
+
         - name: clear
+          usage: Mention a role.
+          description: Clear all permissions from a role.
+          permissions:
+            - managePermissions
+
         - name: set
+          usage: Mention a role.
+          description: Set a role's permissions, clearing the previous permissions.
+          permissions:
+            - managePermissions
+
     - name: users
+      description: Manage permissions of specific users.
       children:
         - name: add
+          usage: Mention one or more users.
+          description: Add permissions to some users.
+          permissions:
+            - managePermissions
+
         - name: remove
+          usage: Mention one or more users.
+          description: Remove some permissions from some users.
+          permissions:
+            - managePermissions
+
         - name: list
+          usage: Mention a user.
+          description: List all the permissions of a user.
+
         - name: clear
+          usage: Mention one or more users.
+          description: Clear all the permissions of some users.
+          permissions:
+            - managePermissions
+
         - name: set
+          usage: Mention one or more users.
+          description: Set some users' permissions directly, clearing the previous ones.
+
     - name: list
+      description: List all available permissions and what they do.
+
     - name: get
+      usage: Mention a user.
+      description:
+       - Get the final, calculated permissions of a user.
+       - This means the permissions after adding up the permissions from their roles and the user-specific permissions.
+
 - name: ranking
+  description: Commands related to ranks and points.
   children:
     - name: view
+      usage:
+        - Mention a user.
+        - You can leave the argument blank to view your own ranking details.
+      description: View ranking details of a user.
+
     - name: points
+      description: Manage points in the ranking system.
       children:
         - name: lb
+          description: View the point leaderboard for this server.
+
         - name: add
+          usage:
+          - Mention one ore more users.
+          - Specify the number of points to add. This can be negative.
+          - Removing points can also be done using /{ ranking points remove }.
+          description: Add points to some users.
+          permissions:
+            - managePoints
+
         - name: remove
+          usage:
+          - Mention one or more users.
+          - Specify the number of points to remove. This can be negative.
+          - Adding points can also be done using /{ ranking points add }.
+          description: Remove points from some users.
+          permissions:
+            - managePoints
+
         - name: set
+          usage: Mention one ore more users and the number of points to set them to.
+          description: Set points for some users.
+          permissions:
+            - managePoints
+
     - name: promote
+      description:
+      - Reconcile every user's rank in accordance to their rank.
+      - Typically not needed.
+      - Has a very long cooldown.
+      permissions:
+        - managePoints
+
     - name: ranks
+      description: Manage ranks in the ranking system.
       children:
         - name: list
+          description: List all ranks.
+
         - name: add
+          usage:
+            - Specify the name of the rank.
+            - If both a name and role are provided, the role will be renamed.
+            - If only a role is provided, the rank will use the name of the role.
+            - If only a name is provided, the rank will use that name and create a new role.
+            - Provide the points required to get this rank.
+            - Add the maximum number of users that can have this rank.
+            - Specify whether the rank can stack with other ranks (this turns it into a secondary rank, removing it from leaderboards).
+            - A user can have an unlimited number of secondary ranks, but only one "main" rank.
+            - Specify whether the rank is hidden from leaderboards. This option is ignored if the rank is a secondary rank.
+            - Optionally, use an existing role as this rank's role.
+          description: Add a rank.
+          permissions:
+            - manageRanks
+
         - name: add_bulk
+          usage:
+          - Add multiple ranks in one command.
+          - See /{ ranking ranks add } for information about the options.
+          - See this command's help entry for information about formatting.
+          description: Add multiple ranks at once.
+          permissions:
+            - manageRanks
+
         - name: edit
+          usage: Only fields specified are changed in the rank.
+          description: Edit a rank.
+          permissions:
+            - manageRanks
+
         - name: remove
+          usage: Provide the name of the rank to remove.
+          description: Remove a rank.
+          permissions:
+            - manageRanks
+
         - name: in
+          usage: Provide a rank's name.
+          description: List which users are in a rank.
+
 - name: session
+  description: Commands related to session management.
   children:
     - name: status
+      description: Get the status of the session in this server.
+
     - name: start
+      usage:
+      - Optionally, provide a link to a message with up to 4 attachments to attach to the session message.
+      - The message must be a DM to Stronghold or mention (ping, @Stronghold) it!! Otherwise, the bot will not find any attachments. Blame Discord.
+      - You can also upload one attachment for the same purpose.
+      - After entering the command, you will be prompted to enter a title and text for the session.
+      description: Start a session.
+      permissions:
+        - manageSessions
+
     - name: quickstart
+      description: Start a session using the defaults set by /{ session edit_default }.
+      permissions:
+        - manageSessions
+
     - name: stop
+      description: Stop the session.
+      permissions:
+        - manageSessions
+
     - name: edit
+      usage: Only the fields specified are changed.
+      description: Edit the ongoing session's details.
+
     - name: edit_default
+      usage:
+      - Specify either a message link or upload an image, with the same conditions as /{ session start }.
+      - This will prompt you to save a title and message as the default.
+      - Does not start a session.
+      description: Edit the default session options.
+      permissions:
+        - manageSessions
+
     - name: participants
+      usage: Choose the type of participants to list.
+      description: List participants of the ongoing session.
+
     - name: kick
+      usage:
+      - Mention a user.
+      - This keeps their time spent in the session (see /{ session quota } for usage of the time quota).
+      description: Kick a participant from the session.
+      permissions:
+        - manageSessions
+
     - name: quota
+      usage:
+      - Specify a period of time to set as the quota.
+      - "Use this format: 1d 2h 3m 4s. You can guess what each letter means."
+      - If no time is provided, the quota is removed.
+      description: Manage the time quota of the ongoing session.
+      permissions:
+        - manageSessions
+
     - name: remove
+      usage:
+      - Mention a user.
+      - This also removes the time the user has spent in the session (see /{ session quota } for usage of the time quota).
+      description: Remove a participant from the ongoing session.
+      permissions:
+        - manageSessions
+
     - name: time
+      usage:
+      - Mention a user.
+      - This also tells you whether they've met the quota (see /{ session quota } for usage of the time quota).
+      description: View the amount of time a user has spent in the ongoing session.
+      permissions:
+        - manageSessions
+
+

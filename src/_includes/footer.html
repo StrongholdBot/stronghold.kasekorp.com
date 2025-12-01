@@ -1,5 +1,5 @@
 <footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <data class="u-url" href="{{ " /" | relative_url }}"></data>
 
   <div class="wrapper">
 
@@ -12,9 +12,15 @@
             Support or inquiries
           </li>
           {%- if site.email -%}
-          <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email
-              }}</a></li>
+          <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           {%- endif -%}
+          <li>
+            <br>
+          </li>
+          <li class="p-name">
+            Support server (Discord)
+          </li>
+          <li><a class="u-email" href="/discord">{{ site.url | append: "/discord" }}</a></li>
         </ul>
       </div>
 

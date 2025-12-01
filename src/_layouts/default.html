@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  <head>
-    {% include head.html %}
-  </head>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
-  <body>
-    {% include header.html %}
+<head>
+  {% include head.html %}
+</head>
 
-    <div class="layout">
-      {% include sidebar.html %}
+<body>
+  {% include header.html %}
 
-      <main class="page-content">
-        {{ content }}
-      </main>
-      <aside class="toc-sidebar">
-        <h4>On this page</h4>
-        <nav id="toc"></nav>
-      </aside>
-    </div>
+  <div margin="auto" class="layout">
+    {% include sidebar.html %}
 
-    {% include footer.html %}
-  </body>
+    <main class="page-content">
+      {{ content }}
+    </main>
+    <aside class="toc-sidebar">
+      <h4 id="toc-title" class="no-toc">On this page</h4>
+      <nav id="toc"></nav>
+    </aside>
+  </div>
+
+  {% include footer.html %}
+</body>
 
 </html>

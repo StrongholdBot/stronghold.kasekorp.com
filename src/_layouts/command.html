@@ -5,24 +5,72 @@ layout: default
 <h1>{{ page.title }}</h1>
 
 {% if page.ancestry %}
+{% assign fullname = page.title %}
+
+{% if page.ancestry.size > 0 %}
+{% assign fullname = page.ancestry | join: " " | append: " " | append: page.title %}
+{% endif %}
+
 <p class="ancestry">
-    <strong>Full command:</strong><br>
-    <span class="discord-command-wrapper">
-        <span class="discord-command">
-            <code>/{{ page.ancestry | join: "" }} {{ page.title }}</code>
-            <button class="discord-copy-btn" onclick="copyDiscordCommand(this)"
-                aria-label="Copy command">⧉</button>
-        </span>
-    </span>
+<h2>Full command</h2>
+{% include ds-cmd.html cmd=fullname %}
 </p>
 {% endif %}
+<button class="button-primary" onclick="location.href = '/commands/{{ page.ancestry | join: '/' }}'">Back</button>
 
 {% if page.usage %}
 <h2>Usage</h2>
-<pre><code>{{ page.usage }}</code></pre>
+{% for paragraph in page.usage %}
+<p>
+    {% assign parts = paragraph | split: "/{" %}
+
+    {{ parts[0] }}
+
+    {% for part in parts offset:1 %}
+    {% assign inner = part | split: "}" | first | strip %}
+    {% assign rest = part | split: "}" | last %}
+
+    {% include ds-cmd.html cmd=inner %}{{ rest }}
+    {% endfor %}
+</p>
+{% endfor %}
 {% endif %}
 
 {% if page.description %}
 <h2>Description</h2>
-<p>{{ page.description }}</p>
+{% for paragraph in page.description %}
+<p>
+    {% assign parts = paragraph | split: "/{" %}
+
+    {{ parts[0] }}
+
+    {% for part in parts offset:1 %}
+    {% assign inner = part | split: "}" | first | strip %}
+    {% assign rest = part | split: "}" | last %}
+
+    {% include ds-cmd.html cmd=inner %}{{ rest }}
+    {% endfor %}
+</p>
+{% endfor %}
+{% endif %}
+
+{% if page.permissions %}
+<h2>Required Permissions</h2>
+<ul>
+    {% for perm in page.permissions %}
+    <li>
+        {% include emphasis.html text=perm %}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% if page.children %}
+<h2>Subcommands</h2>
+<ul>
+    {% for child in page.children %}
+    <li><a href="/commands/{{ fullname | replace: ' ', '/' }}/{{ child.name }}">{{ child.name }}</a></li>
+    {% endfor %}
+</ul>
 {% endif %}

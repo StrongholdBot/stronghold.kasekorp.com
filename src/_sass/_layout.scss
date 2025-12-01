@@ -57,6 +57,7 @@
   width: 240px;
   background: #1c1c1c;
   padding: 1rem;
+  top: 4rem;
   position: fixed;
   height: calc(100vh - 4rem);
   overflow-y: auto;
@@ -86,8 +87,9 @@
 
 /* Sidebar toggle button */
 .sidebar-toggle {
-  display: none; /* desktop hidden */
-  position: absolute;
+  display: none;
+  /* desktop hidden */
+  position: fixed;
   top: 1rem;
   left: 1rem;
   background: #333;
@@ -102,7 +104,7 @@
 @media (max-width: 1460px) {
   .sidebar {
     width: 0;
-    padding: 0;
+    padding: 1rem 0;
     overflow: hidden;
   }
 
@@ -128,6 +130,7 @@
   max-width: 320px;
   padding: 0.6rem 0.9rem;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
 
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -142,13 +145,20 @@
 }
 
 #results-container {
-  margin-top: 0.75rem;
-  list-style: none;
+  max-height: 20rem;
+  overflow-y: auto;
+  /* enable vertical scrolling */
   padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 85%;
+  max-width: 320px
 }
 
 #results-container li {
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #eee;
 }
 
@@ -159,13 +169,15 @@
 
 
 .toc-sidebar {
-  position: sticky;
+  position: fixed;
   top: 4rem;
+  right: 0;
   padding: 1rem 1.5rem;
   max-width: 240px;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   height: fit-content;
-  margin-left: 5%; /* Push it to the right */
+  margin-left: 5%;
+  margin-right: 2%;
 }
 
 .toc-sidebar h4 {
@@ -192,7 +204,7 @@
 }
 
 #toc a:hover {
-  color: var(--text-primary, #000);
+  color: $accent-hover;
 }
 
 #toc a.active {

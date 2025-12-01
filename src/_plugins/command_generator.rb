@@ -6,6 +6,7 @@ module Jekyll
     priority :normal
 
     def generate(site)
+      @counter = 0
       data = site.data["commands"] || []
       generate_nodes(site, data, [], "")
     end
@@ -17,12 +18,16 @@ module Jekyll
         new_path = path.empty? ? slug : "#{path}/#{slug}"
 
         # Create a document only if details exist
-        if (node["usage"] || node["description"])
-          site.collections["commands"].docs << build_doc(site, node, ancestry, new_path)
+        if node["usage"] || node["description"]
+          doc = build_doc(site, node, ancestry, new_path)
+          doc.data["order"] = (@counter += 1)
+          site.collections["commands"].docs << doc
         end
 
-        # Recurse children
-        generate_nodes(site, node["children"], ancestry + [name], new_path) if node["children"]
+        # Recurse into children
+        if node["children"]
+          generate_nodes(site, node["children"], ancestry + [name], new_path)
+        end
       end
     end
 
@@ -36,7 +41,10 @@ module Jekyll
         doc.data["usage"]       = node["usage"]
         doc.data["description"] = node["description"]
         doc.data["ancestry"]    = ancestry
+        doc.data["depth"]       = ancestry.size + 1
         doc.data["layout"]      = "command"
+        doc.data["children"]    = node["children"]
+        doc.data["permissions"] = node["permissions"]
       end
     end
   end

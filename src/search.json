@@ -2,13 +2,13 @@
 layout: none
 ---
 [
-  {% for post in site.posts %}
+  {% for cmd in site.commands %}
     {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.category }}",
-      "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}"
+      "title"    : "{{ cmd.title | escape }}",
+      "url"      : "{{ cmd.url | escape }}",
+      "ancestry" : "{{ cmd.ancestry | join: ' ' }}",
+      "description" : "{{ cmd.description | join: ' ' | strip_newlines | escape }}",
+      "usage"    : "{{ cmd.usage | escape }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

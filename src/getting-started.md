@@ -14,7 +14,7 @@ The bot will be added to your server, and now you need to set it up.
 
 ## Setup
 
-Run {% include ds-cmd.html cmd="/setup" %} to get started.<br>
+Run {% include ds-cmd.html cmd="setup" %} to get started.<br>
 Reading the instructions should guide you through the setup process.
 In case you still have questions, here's an explanation:
 
@@ -24,10 +24,10 @@ The first step is to assign who you would like to be able to control basically a
 
 ### Logging
 
-If you are unsure or don't care, just pick {% include emphasis.html text="Create new" %} or choose some forum channel and leave the category to {% include emphasis.html text="everything" %}.
+If you are unsure or don't care, just pick {% include emphasis.html text="Create new" %} or choose some forum channel and leave the category as {% include emphasis.html text="everything" %}.
 Otherwise, pick the categories you want to receive.
 
-If you want to be a contrarian and receive no logs, don't select any channel. <b>This is not recommended.</b> Log channels can receive important update information, warnings, and erorrs.
+If you want to be a contrarian and not receive any logs, don't select a channel. <b>This is not recommended.</b> Log channels can receive important update information, warnings, and erorrs.
 
 {% include callout.html type="warning" content="Make sure the bot has the permission to send messages and create public threads in the channel!" %}
 

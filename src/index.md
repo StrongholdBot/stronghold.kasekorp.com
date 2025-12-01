@@ -36,7 +36,7 @@ This documentation covers:
 - Easy setup and usage
 - Flexible use cases (not limited to just faction servers!)
 
-## Still In Development
+## Still in Development
 
 The bot is continuously being developed.
 Also, some parts of this documentation are still being written.

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Build TOC
   headings.forEach(h => {
     if (h.classList.contains("no-toc")) {
-        return;
+      return;
     }
     if (!h.id) {
       h.id = h.textContent.trim().toLowerCase().replace(/[^\w]+/g, "-");
