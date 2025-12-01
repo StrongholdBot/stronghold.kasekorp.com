@@ -8,7 +8,7 @@ layout: none
       "url"      : "{{ cmd.url | escape }}",
       "ancestry" : "{{ cmd.ancestry | join: ' ' }}",
       "description" : "{{ cmd.description | join: ' ' | strip_newlines | escape }}",
-      "usage"    : "{{ cmd.usage | escape }}"
+      "usage"    : "{{ cmd.usage | join: ' ' | strip_newlines | escape }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

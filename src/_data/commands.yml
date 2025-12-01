@@ -121,7 +121,7 @@
         - You can also reply to one of Stronghold's messages in a diplomacy thread as a short-hand for this command (what you say is used as the message content).
       description: Send a diplomatic message to another server.
       permissions:
-        - manageRelations
+        - diplomacyMessages
 
 - name: permissions
   description:
@@ -195,8 +195,8 @@
     - name: get
       usage: Mention a user.
       description:
-       - Get the final, calculated permissions of a user.
-       - This means the permissions after adding up the permissions from their roles and the user-specific permissions.
+        - Get the final, calculated permissions of a user.
+        - This means the permissions after adding up the permissions from their roles and the user-specific permissions.
 
 - name: ranking
   description: Commands related to ranks and points.
@@ -215,18 +215,18 @@
 
         - name: add
           usage:
-          - Mention one ore more users.
-          - Specify the number of points to add. This can be negative.
-          - Removing points can also be done using /{ ranking points remove }.
+            - Mention one ore more users.
+            - Specify the number of points to add. This can be negative.
+            - Removing points can also be done using /{ ranking points remove }.
           description: Add points to some users.
           permissions:
             - managePoints
 
         - name: remove
           usage:
-          - Mention one or more users.
-          - Specify the number of points to remove. This can be negative.
-          - Adding points can also be done using /{ ranking points add }.
+            - Mention one or more users.
+            - Specify the number of points to remove. This can be negative.
+            - Adding points can also be done using /{ ranking points add }.
           description: Remove points from some users.
           permissions:
             - managePoints
@@ -239,9 +239,9 @@
 
     - name: promote
       description:
-      - Reconcile every user's rank in accordance to their rank.
-      - Typically not needed.
-      - Has a very long cooldown.
+        - Reconcile every user's rank in accordance to their rank.
+        - Typically not needed.
+        - Has a very long cooldown.
       permissions:
         - managePoints
 
@@ -269,9 +269,9 @@
 
         - name: add_bulk
           usage:
-          - Add multiple ranks in one command.
-          - See /{ ranking ranks add } for information about the options.
-          - See this command's help entry for information about formatting.
+            - Add multiple ranks in one command.
+            - See /{ ranking ranks add } for information about the options.
+            - See this command's /{ help } entry for information about formatting.
           description: Add multiple ranks at once.
           permissions:
             - manageRanks
@@ -300,10 +300,10 @@
 
     - name: start
       usage:
-      - Optionally, provide a link to a message with up to 4 attachments to attach to the session message.
-      - The message must be a DM to Stronghold or mention (ping, @Stronghold) it!! Otherwise, the bot will not find any attachments. Blame Discord.
-      - You can also upload one attachment for the same purpose.
-      - After entering the command, you will be prompted to enter a title and text for the session.
+        - Optionally, provide a link to a message with up to 4 attachments to attach to the session message.
+        - The message must be a DM to Stronghold or mention (ping, @Stronghold) it!! Otherwise, the bot will not find any attachments. Blame Discord.
+        - You can also upload one attachment for the same purpose.
+        - After entering the command, you will be prompted to enter a title and text for the session.
       description: Start a session.
       permissions:
         - manageSessions
@@ -324,9 +324,9 @@
 
     - name: edit_default
       usage:
-      - Specify either a message link or upload an image, with the same conditions as /{ session start }.
-      - This will prompt you to save a title and message as the default.
-      - Does not start a session.
+        - Specify either a message link or upload an image, with the same conditions as /{ session start }.
+        - This will prompt you to save a title and message as the default.
+        - Does not start a session.
       description: Edit the default session options.
       permissions:
         - manageSessions
@@ -337,35 +337,51 @@
 
     - name: kick
       usage:
-      - Mention a user.
-      - This keeps their time spent in the session (see /{ session quota } for usage of the time quota).
+        - Mention a user.
+        - This keeps their time spent in the session (see /{ session quota } for usage of the time quota).
       description: Kick a participant from the session.
       permissions:
         - manageSessions
 
     - name: quota
       usage:
-      - Specify a period of time to set as the quota.
-      - "Use this format: 1d 2h 3m 4s. You can guess what each letter means."
-      - If no time is provided, the quota is removed.
+        - Specify a period of time to set as the quota.
+        - "Use this format: 1d 2h 3m 4s. You can guess what each letter means."
+        - If no time is provided, the quota is removed.
       description: Manage the time quota of the ongoing session.
       permissions:
         - manageSessions
 
     - name: remove
       usage:
-      - Mention a user.
-      - This also removes the time the user has spent in the session (see /{ session quota } for usage of the time quota).
+        - Mention a user.
+        - This also removes the time the user has spent in the session (see /{ session quota } for usage of the time quota).
       description: Remove a participant from the ongoing session.
       permissions:
         - manageSessions
 
     - name: time
       usage:
-      - Mention a user.
-      - This also tells you whether they've met the quota (see /{ session quota } for usage of the time quota).
+        - Mention a user.
+        - This also tells you whether they've met the quota (see /{ session quota } for usage of the time quota).
       description: View the amount of time a user has spent in the ongoing session.
       permissions:
         - manageSessions
 
-
+- name: feedback
+  usage:
+    - Choose the type of feedback to send.
+    - A prompt for text is shown after running the command.
+  description: Send feedback to the bot developers.
+- name: help
+  usage:
+    - Optionally, provide a command name to get help for.
+    - Some info is only available in a command's help entry (not on the docs)
+  description: View a list of all commands or a specific command's help entry.
+- name: invite
+  description: Provides a link to invite the bot to your server.
+- name: ping
+  description: Checks whether the bot is responsive and calculates the delay between running a command and receiving a response.
+- name: setup
+  usage: See <a href="https://stronghold.kasekorp.com/getting-started">the Getting Started guide</a> for usage instructions.
+  description: Set up the bot in your server.

@@ -26,7 +26,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stronghold.kasekorp.com" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username: StrongholdBot
-support_discord: https://discord.gg/tGSAjdSqfJ
+support_discord: https://discord.gg/VAe3ryRmtn
 support_username: "@stabbyfork"
 
 # Build settings

@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: "<h1 align='center'> Stronghold Documentation </h1>"
+title: "Stronghold Documentation"
 ---
 
 <p align="center">

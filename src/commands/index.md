@@ -1,21 +1,27 @@
 ---
 layout: default
 title: Commands
+permalink: /commands/
 ---
 
 # Commands
 
 {% assign sorted = site.commands | sort: "order" %}
+{% assign first = true %}
 
-<ul class="command-tree">
+<ul align='left' class="command-tree">
   {% for cmd in sorted %}
     {% assign depth = cmd.ancestry | size %}
-    <li style="margin-left: {{ depth | times: 3 }}rem;">
+    {% if depth == 0 and first == false %}<hr>{% endif %}
+    {% assign first = false %}
+    <li>
     <a href="{{ cmd.url }}">
       {% if depth == 0 %}
-      <h1 class="no-toc">{{ cmd.title }}</h1>
-      {% elsif depth == 1 or depth == 2 %}
-      <h2 class="no-toc">{{ cmd.title }}</h2>
+      <code>{{ cmd.title }}</code>
+      {% elsif depth == 1 %}
+      |—<code>{{ cmd.title }}</code>
+      {% elsif depth == 2 %}
+      |&nbsp;&nbsp;&nbsp;&nbsp;|—<code>{{ cmd.title }}</code>
       {% endif %}
       </a>
     </li>

@@ -6,9 +6,11 @@ module Jekyll
     priority :normal
 
     def generate(site)
-      @counter = 0
       data = site.data["commands"] || []
+
       generate_nodes(site, data, [], "")
+
+      site.data["command_tree"] = build_tree(site)
     end
 
     def generate_nodes(site, nodes, ancestry, path)
@@ -17,18 +19,27 @@ module Jekyll
         slug = name.downcase.gsub(" ", "-")
         new_path = path.empty? ? slug : "#{path}/#{slug}"
 
-        # Create a document only if details exist
         if node["usage"] || node["description"]
-          doc = build_doc(site, node, ancestry, new_path)
-          doc.data["order"] = (@counter += 1)
-          site.collections["commands"].docs << doc
+          site.collections["commands"].docs << build_doc(site, node, ancestry, new_path)
         end
 
-        # Recurse into children
-        if node["children"]
-          generate_nodes(site, node["children"], ancestry + [name], new_path)
-        end
+        generate_nodes(site, node["children"], ancestry + [name], new_path) if node["children"]
       end
+    end
+
+    def build_tree(site)
+      root = {}
+
+      site.collections["commands"].docs.each do |doc|
+        node = root
+        doc.data["ancestry"].each do |ancestor|
+          node[ancestor] ||= {}
+          node = node[ancestor]
+        end
+        node[doc.data["title"]] ||= {}
+      end
+
+      root
     end
 
     def build_doc(site, node, ancestry, path)
