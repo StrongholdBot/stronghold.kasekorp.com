@@ -236,10 +236,14 @@ html {
   li {
     margin: 0.25rem 0;
     line-height: 1.4;
+    padding-bottom: 0.4rem;
   }
 
   a {
     font-weight: 600;
+  }
+  h2, h3, h4 {
+    display: inline;
   }
 
   code {
@@ -248,5 +252,7 @@ html {
     border-radius: 4px;
     margin-left: 4px;
     font-size: 0.85em;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
 }

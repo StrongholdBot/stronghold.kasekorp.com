@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("toc");
-  const headings = document.querySelectorAll("h2, h3");
+  const headings = Array.from(document.querySelectorAll("h2, h3, h4").values()).filter(h => !h.classList.contains("no-toc"));
+  if (!headings.length) {
+    const title = document.getElementById("toc-title");
+    if (title) title.style.visibility = "hidden";
+  };
 
   // Build TOC
   headings.forEach(h => {
-    if (h.classList.contains("no-toc")) {
-      return;
-    }
     if (!h.id) {
       h.id = h.textContent.trim().toLowerCase().replace(/[^\w]+/g, "-");
     }
@@ -19,20 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
     toc.appendChild(link);
   });
 
-  // Highlight active heading
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = toc.querySelector(`a[href="#${id}"]`);
-        if (entry.isIntersecting) {
-          toc.querySelectorAll("a").forEach(a => a.classList.remove("active"));
-          if (link) link.classList.add("active");
-        }
-      });
-    },
-    { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-  );
 
-  headings.forEach(h => observer.observe(h));
+  window.addEventListener('scroll', () => {
+    let current = headings[0];
+
+    for (const h of headings) {
+      console.log(h, h.getBoundingClientRect().top);
+      if (h.getBoundingClientRect().top <= 100) {
+        current = h;
+      } else {
+        break;
+      }
+    }
+
+    const id = current.id;
+    const link = toc.querySelector(`a[href="#${id}"]`);
+
+    toc.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+    if (link) link.classList.add("active");
+  });
 });
