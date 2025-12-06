@@ -35,6 +35,8 @@ This documentation covers:
 - Modular
 - Easy setup and usage
 - Flexible use cases (not limited to just faction servers!)
+- Free of charge storage and usage
+- Minimal redundancy: attempts not to do what other bots already can
 
 ## Still in Development
 

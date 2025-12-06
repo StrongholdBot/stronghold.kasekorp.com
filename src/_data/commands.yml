@@ -50,15 +50,17 @@
   description: Commands related to diplomacy.
   children:
     - name: setup
-      usage: Provide a tag and a forum channel to use for diplomacy.
+      usage:
+        - Provide a tag and a forum channel to use for diplomacy.
+        - If you do not specify a channel, a new one will be created.
       description:
         - Set up diplomacy.
         - You must be the server owner.
 
     - name: info
       usage:
-      - Provide a server's tag.
-      - If no tag is provided, information about this server is shown.
+        - Provide a server's tag.
+        - If no tag is provided, information about this server is shown.
       description: List information about a server.
 
     - name: allies
@@ -386,5 +388,7 @@
 - name: ping
   description: Checks whether the bot is responsive and calculates the delay between running a command and receiving a response.
 - name: setup
-  usage: See <a href="https://stronghold.kasekorp.com/getting-started">the Getting Started guide</a> for usage instructions.
+  usage:
+    - See <a href="https://stronghold.kasekorp.com/getting-started">the Getting Started guide</a> for usage instructions.
+    - Optionally, force the setup to be redone. This clears existing configuration data.
   description: Set up the bot in your server.

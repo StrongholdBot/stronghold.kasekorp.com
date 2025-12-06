@@ -178,6 +178,9 @@
   height: fit-content;
   margin-left: 5%;
   margin-right: 2%;
+  overflow-y: auto;
+  max-height: 80dvh;
+  scrollbar-width: none;
 }
 
 .toc-sidebar h4 {
