@@ -4,9 +4,8 @@ layout: none
 [
   {% for cmd in site.commands %}
     {
-      "title"    : "{{ cmd.title | escape }}",
+      "title"    : "{% if cmd.ancestry.size > 0 %}{{ cmd.ancestry | join: ' ' | append: ' ' | escape }}{% endif %}{{ cmd.title | escape }}",
       "url"      : "{{ cmd.url | escape }}",
-      "ancestry" : "{{ cmd.ancestry | join: ' ' }}",
       "description" : "{{ cmd.description | join: ' ' | strip_newlines | escape }}",
       "usage"    : "{{ cmd.usage | join: ' ' | strip_newlines | escape }}"
     } {% unless forloop.last %},{% endunless %}

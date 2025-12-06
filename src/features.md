@@ -34,9 +34,9 @@ Points determine a user's rank. Yes, they can be negative.
 
 ## Diplomacy
 
-This is a system where allowed members of servers can send messages to and manage relations with other servers.
+This is a system where allowed members of servers can send messages to and manage relations with other servers. Features efficient two-way requests and convenient cross-server messaging.
 
-Set up diplomacy using {% include ds-cmd.html cmd="dpm setup" %}
+Set up diplomacy using {% include ds-cmd.html cmd="dpm setup" %}.
 
 ### Allies
 
@@ -64,12 +64,15 @@ Set up diplomacy using {% include ds-cmd.html cmd="dpm setup" %}
 ## Sessions
 
 Permitted users can start and manage sessions, a generic form of an event that people can attend.
+Includes real-time participant logging, management, a time quota system, and default options.
 
 ### Management
 
 - Start a session using {% include ds-cmd.html cmd="sessions start" %}
 - Stop a session using {% include ds-cmd.html cmd="sessions stop" %}
 - Edit an ongoing session with {% include ds-cmd.html cmd="sessions edit" %}
+- Remove or kick a participant using {% include ds-cmd.html cmd="sessions remove" %} (see the difference in their usage sections)
+
 
 ## Activity Checks
 

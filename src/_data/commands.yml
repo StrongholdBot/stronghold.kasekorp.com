@@ -56,7 +56,10 @@
         - You must be the server owner.
 
     - name: info
-      description: List information about this server.
+      usage:
+      - Provide a server's tag.
+      - If no tag is provided, information about this server is shown.
+      description: List information about a server.
 
     - name: allies
       description: Manage diplomatic allies.
@@ -301,7 +304,7 @@
     - name: start
       usage:
         - Optionally, provide a link to a message with up to 4 attachments to attach to the session message.
-        - The message must be a DM to Stronghold or mention (ping, @Stronghold) it!! Otherwise, the bot will not find any attachments. Blame Discord.
+        - The message must be a DM to Stronghold or mention it (ping @Stronghold)!! Otherwise, the bot will not find any attachments. Blame Discord.
         - You can also upload one attachment for the same purpose.
         - After entering the command, you will be prompted to enter a title and text for the session.
       description: Start a session.
@@ -345,7 +348,7 @@
 
     - name: quota
       usage:
-        - Specify a period of time to set as the quota.
+        - Specify a period of time spent in the session to set as the quota.
         - "Use this format: 1d 2h 3m 4s. You can guess what each letter means."
         - If no time is provided, the quota is removed.
       description: Manage the time quota of the ongoing session.

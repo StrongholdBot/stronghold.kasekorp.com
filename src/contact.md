@@ -8,5 +8,5 @@ title: Contact
 
 Contact can be made via different means:
 
-- Send an email to [info@kasekorp.com](mailto:info@kasekorp.com) (if you want to be a fancypants)
+- Send an email to [{{ site.email }}](mailto:{{ site.email }})
 - Join our support server [here]({{ site.support_discord }})
