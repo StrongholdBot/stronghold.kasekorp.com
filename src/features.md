@@ -102,3 +102,6 @@ Manage bot permissions to fine-tune who can do what.
 ### Users
 
 ## Logging
+
+Keep track of what happens using the bot, including errors, warnings, information, and change tracking.
+After running {% include ds-cmd.html cmd="setup" %}, you can configure logging. More information can be found in the [Getting Started guide](/getting-started/).
